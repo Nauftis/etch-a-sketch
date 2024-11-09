@@ -1,22 +1,26 @@
-function makeColumns(colNum) {
-    const container = document.querySelector(".container");
+const container = document.querySelector(".container")
 
-    for (i = 0; i < colNum; i++) {
+function makeGrid(cellNum) {
+    for (let i = 0; i < cellNum; i++) {
+        makeRows(cellNum)
+    }
+}
+
+function makeRows(cellNum) {
+    const row = document.createElement("div");
+    row.classList.add("row");
+    container.appendChild(row);
+
+    // add cells into row
+    for (let i = 0; i < cellNum; i++) {
         const cell = document.createElement("div");
         cell.classList.add("cell");
-        container.appendChild(cell);
+        row.appendChild(cell);
+        // register mouse event handler
+        cell.addEventListener("mouseover",() => {
+            cell.classList.add("hover")
+        });
     }
 }
 
-function makeRows(rowNum) {
-    container = document.querySelector(".container");
-
-    for (j = 0; j < rowNum; j++) {
-        const row = document.createElement("div");
-        row.classList.add("row");
-        container.appendChild(row);
-    }
-}
-
-// makeColumns(4)
-// makeRows(4)
+makeGrid(16)

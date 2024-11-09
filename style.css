@@ -7,8 +7,10 @@
 
 .row {
     display: flex;
-    flex-direction: row;
-    height: 20px;
-    width: 80px;
+    flex-direction: row; 
 
+}
+
+.hover {
+    background-color: cadetblue;
 }
