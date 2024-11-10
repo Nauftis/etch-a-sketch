@@ -1,4 +1,17 @@
 const container = document.querySelector(".container")
+const gridSizeBtn = document.querySelector("button")
+
+gridSizeBtn.addEventListener("click", () => {
+    let input = prompt("Enter desired squares per side:");
+    while (input > 100) {
+        input = prompt("Squares per side have a max. of 100");
+    };
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+    makeGrid(input);
+});
+
 
 function makeGrid(cellNum) {
     for (let i = 0; i < cellNum; i++) {
@@ -17,10 +30,9 @@ function makeRows(cellNum) {
         cell.classList.add("cell");
         row.appendChild(cell);
         // register mouse event handler
-        cell.addEventListener("mouseover",() => {
+        cell.addEventListener("mouseover", () => {
             cell.classList.add("hover")
         });
     }
 }
 
-makeGrid(16)
