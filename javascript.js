@@ -36,3 +36,4 @@ function makeRows(cellNum) {
     }
 }
 
+makeGrid(32)
